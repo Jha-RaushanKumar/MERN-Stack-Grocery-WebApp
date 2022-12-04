@@ -1,253 +1,255 @@
 const ErrorHander = require("../utils/errorhander");
-const catchAsyncErrors=require("../middleware/catchAsyncErrors");
-const User=require("../models/userModels");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const User = require("../models/userModels");
 const sendToken = require("../utils/jwtToken");
-const sendEmail=require("../utils/sendEmail")
-const crypto=require("crypto")
+const sendEmail = require("../utils/sendEmail")
+const crypto = require("crypto")
+const cloudinary = require("cloudinary");
 //Register a User
 
-exports.registerUser =catchAsyncErrors(async(req,res,next)=>{
-   
-    const { name,email,password  }=req.body;
+exports.registerUser = catchAsyncErrors(async (req, res, next) => {
+    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: "avatars",
+        width: 150,
+        crop: "scale",
+    });
 
-    const user =await User.create({
+    const { name, email, password } = req.body;
+
+    const user = await User.create({
         name,
         email,
         password,
-        avatar:{
-            public_id:"this is sample id",
-            url:"profilepicUrl"
+        avatar: {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
         }
     });
 
-//     const token =user.getJWTToken();
-//     res.status(201).json({
-// success:true,
-// token,
-//     })
+    //     const token =user.getJWTToken();
+    //     res.status(201).json({
+    // success:true,
+    // token,
+    //     })
 
-    sendToken(user,201,res);
+    sendToken(user, 201, res);
 
 });
 
 exports.loginUser = catchAsyncErrors(
-    async(req,res,next)=>{
-        const{email,password}=req.body;
+    async (req, res, next) => {
+        const { email, password } = req.body;
 
         //checking if user has given password and email both
 
-        if(!email || !password){
-            return next(new ErrorHander("Please Enter Email & Password",400))
+        if (!email || !password) {
+            return next(new ErrorHander("Please Enter Email & Password", 400))
         }
 
-        const user = await User.findOne({email}).select("+password");
+        const user = await User.findOne({ email }).select("+password");
 
-        if(!user){
-            return next(new ErrorHander("Invalid Email or Password",401));
+        if (!user) {
+            return next(new ErrorHander("Invalid Email or Password", 401));
         }
-        const isPasswordMatched =await user.comparePassword(password);
-        if(!isPasswordMatched)
-        {
-            return next(new ErrorHander("Invalid email or password",401));
+        const isPasswordMatched = await user.comparePassword(password);
+        if (!isPasswordMatched) {
+            return next(new ErrorHander("Invalid email or password", 401));
         }
 
-//        const token =user.getJWTToken();
-//        res.status(201).json({
-// success:true,
-// token,
-//        })
+        //        const token =user.getJWTToken();
+        //        res.status(201).json({
+        // success:true,
+        // token,
+        //        })
 
 
-        sendToken(user,200,res);
+        sendToken(user, 200, res);
     });
 
 //logout User
-exports.logout=catchAsyncErrors(async(req,res,next)=>
-{
-    res.cookie("token",null,{
-        expires:new Date(Date.now()),
-        httpOnly : true, 
+exports.logout = catchAsyncErrors(async (req, res, next) => {
+    res.cookie("token", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
     })
     res.status(200).json({
-        success:true,
-        message:"Logged out",
+        success: true,
+        message: "Logged out",
     });
 });
 
 //forgot password
 
-exports.forgotPassword = catchAsyncErrors(async(req,res,next)=>{
-    const user= await User.findOne({email:req.body.email});
-    if(!user){
-        return next(new ErrorHander("user not found",404));
+exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+        return next(new ErrorHander("user not found", 404));
     }
-       //get reset password token
+    //get reset password token
 
-      const resetToken = user.getResetPasswordToken();
+    const resetToken = user.getResetPasswordToken();
 
-    await user.save({ validateBeforeSave:false });
+    await user.save({ validateBeforeSave: false });
 
-    const resetPasswordUrl=`${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
-    const message=`Your password reset token is :- \n\n ${resetPasswordUrl} \n\n If you have not requested this email the, please ignore it `;
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
+    const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n If you have not requested this email the, please ignore it `;
 
-    try{
+    try {
         await sendEmail({
 
-            email:user.email,
-            subject:`Ecommerce Password Recovery`,
+            email: user.email,
+            subject: `Ecommerce Password Recovery`,
             message,
         });
         res.status(200).json({
-            success:true,
-            message:`Email sent to ${user.email} successfully`,
+            success: true,
+            message: `Email sent to ${user.email} successfully`,
         })
 
     }
-catch(error){
-user.resetPasswordToken=undefined;
-user.resetPasswordExpire=undefined;
-await user.save({validateBeforeSave:false});
-return next(new ErrorHander(error.message,500));
-}
+    catch (error) {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save({ validateBeforeSave: false });
+        return next(new ErrorHander(error.message, 500));
+    }
 });
 
 //Reset Password
-exports.resetPassword = catchAsyncErrors(async(req,res,next)=>{
+exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
     //creating token Hash
-   const resetPasswordToken=crypto
-    .createHash("sha256")
-    .update(req.params.token)
-    .digest("hex");
+    const resetPasswordToken = crypto
+        .createHash("sha256")
+        .update(req.params.token)
+        .digest("hex");
 
-    const user=await User.findOne({
+    const user = await User.findOne({
         resetPasswordToken,
-        resetPasswordExpire: {$gt:Date.now() },
+        resetPasswordExpire: { $gt: Date.now() },
     });
 
-    if(!user){
-        return next(new ErrorHander("Reset password token is Invalid or has been expired ",404));
+    if (!user) {
+        return next(new ErrorHander("Reset password token is Invalid or has been expired ", 404));
     }
-    if(req.body.password !=req.body.confirmPassword){
-        return next(new ErrorHander("Password does not match password ",400));
+    if (req.body.password != req.body.confirmPassword) {
+        return next(new ErrorHander("Password does not match password ", 400));
     }
     user.password = req.body.password;
-    user.resetPasswordToken=undefined;
-    user.resetPasswordExpire=undefined;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
     await user.save();
-    sendToken(user,200,res);
+    sendToken(user, 200, res);
 
 });
 
 
 
 //get User details
-exports.getUserDetails=catchAsyncErrors(async(req,res,next)=>{
-    const user= await User.findById(req.user.id);
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id);
     res.status(200).json({
-        success:true,
+        success: true,
         user,
     });
 });
 
 //Update User Password
-exports.updatePassword=catchAsyncErrors(async(req,res,next)=>{
-    const user= await User.findById(req.user.id).select("+password");
-    const isPasswordMatched =await user.comparePassword(req.body.oldPassword);
-    if(!isPasswordMatched)
-    {
-        return next(new ErrorHander("Old password is  incorrect",400));
+exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id).select("+password");
+    const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+    if (!isPasswordMatched) {
+        return next(new ErrorHander("Old password is  incorrect", 400));
     }
-    if(req.body.newPassword !== req.body.confirmPassword){
-        return next(new ErrorHander("Password  does not  match ",400));
+    if (req.body.newPassword !== req.body.confirmPassword) {
+        return next(new ErrorHander("Password  does not  match ", 400));
     }
     user.password = req.body.newPassword;
     await user.save();
-    sendToken(user,200,res);
+    sendToken(user, 200, res);
 });
 
 
 // update User Profile
-exports.updateProfile =catchAsyncErrors(async(req,res,next)=>{
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
-    const newUserData={
-        name:req.body.name,
-        email:req.body.email,
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
     }
-    const user = await User.findByIdAndUpdate(req.user.id,newUserData,{
-        new:true,
-        runValidators:true,
-        useFindAndModify:false,
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
     });
 
     res.status(200).json({
-        success:true
+        success: true
     });
 });
 //get all users
-exports.getAllUsers =catchAsyncErrors(async(req,res,next)=>{
+exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 
-    const users =await User.find();
+    const users = await User.find();
     res.status(200).json({
-        success:true,
+        success: true,
         users,
     });
 });
 
 //get single users(admin)
 
-exports.getSingleUser =catchAsyncErrors(async(req,res,next)=>{
+exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
 
-    const user =await User.findById(req.params.id);
-    if(!user)
-    {
-        return next(new ErrorHander(`User does'nt exist with id: ${req.params.id }`))
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return next(new ErrorHander(`User does'nt exist with id: ${req.params.id}`))
     }
     res.status(200).json({
-        success:true,
+        success: true,
         user,
     });
 });
 
 
 // update User Role(admin)
-exports.updateUserRole  =catchAsyncErrors(async(req,res,next)=>{
+exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
 
-    const newUserData={
-        name:req.body.name,
-        email:req.body.email,
-        role:req.body.role,
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role,
     }
-    const user = await User.findByIdAndUpdate(req.user.id,newUserData,{
-        new:true,
-        runValidators:true,
-        useFindAndModify:false,
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
     });
 
     res.status(200).json({
-        success:true
+        success: true
     });
 });
 
 // Delete User Role(Admin)
-exports.deleteUser = catchAsyncErrors(async(req, res, next) => {
+exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id);
-  
+
     if (!user) {
-      return next(
-        new ErrorHander(`User does not exist with Id: ${req.params.id}`, 400)
-      );
+        return next(
+            new ErrorHander(`User does not exist with Id: ${req.params.id}`, 400)
+        );
     }
-  
-  //  const imageId = user.avatar.public_id;
-  
-  //  await cloudinary.v2.uploader.destroy(imageId);
-  
+
+    //  const imageId = user.avatar.public_id;
+
+    //  await cloudinary.v2.uploader.destroy(imageId);
+
     await user.remove();
-  
+
     res.status(200).json({
-      success: true,
-      message: "User Deleted Successfully",
+        success: true,
+        message: "User Deleted Successfully",
     });
-  });
-   
+});
+
