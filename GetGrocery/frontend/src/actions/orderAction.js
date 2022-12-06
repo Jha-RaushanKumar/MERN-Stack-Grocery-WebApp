@@ -125,7 +125,8 @@ import {
   
       dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
     } catch (error) {
-      dispatch({
+      dispatch(
+       {
         type: ORDER_DETAILS_FAIL,
         payload: error.response.data.message,
       });
