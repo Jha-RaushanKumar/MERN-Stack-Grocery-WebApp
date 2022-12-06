@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar.js";
+
 import "./dashboard.css";
 import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -40,6 +41,7 @@ const Dashboard = () => {
       totalAmount += item.totalPrice;
     });
 
+
   const lineState = {
     labels: ["Initial Amount", "Amount Earned"],
     datasets: [
@@ -52,6 +54,7 @@ const Dashboard = () => {
     ],
   };
 
+
   const doughnutState = {
     labels: ["Out of Stock", "InStock"],
     datasets: [
@@ -59,6 +62,7 @@ const Dashboard = () => {
         backgroundColor: ["#00A6B4", "#6800B4"],
         hoverBackgroundColor: ["#4B5000", "#35014F"],
         data: [outOfStock, products.length - outOfStock],
+
       },
     ],
   };
@@ -75,6 +79,7 @@ const Dashboard = () => {
           <div>
             <p>
               Total Amount <br /> ₹{totalAmount}
+
             </p>
           </div>
           <div className="dashboardSummaryBox2">
