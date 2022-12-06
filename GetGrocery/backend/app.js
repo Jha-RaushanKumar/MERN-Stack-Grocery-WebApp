@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 
-const errorMiddleware=require("./middleware/error")
 //config 
 dotenv.config({ path: "backend/config/config.env" });
 
