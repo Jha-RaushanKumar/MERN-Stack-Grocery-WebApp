@@ -1,3 +1,4 @@
+
 .orders {
   width: 100vw;
   height: 100vh;
@@ -87,4 +88,33 @@
   .MuiDataGrid-columnHeader div {
     font: 500 5vw "Roboto" !important;
   }
+
+  .MuiDataGrid-iconSeparator {
+    display: none !important;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .myOrdersPage {
+      padding: 0;
+      height: 93vh;
+    }
+  
+    #myOrdersHeading {
+      font: 400 2.2vmax "Roboto";
+      padding: 4vw;
+    }
+  
+    .myOrdersTable div {
+      font: 300 4vw "Roboto";
+    }
+  
+    .MuiDataGrid-columnHeader {
+      padding: 20px !important;
+    }
+  
+    .MuiDataGrid-columnHeader div {
+      font: 500 5vw "Roboto" !important;
+    }
+  }
 }
+
