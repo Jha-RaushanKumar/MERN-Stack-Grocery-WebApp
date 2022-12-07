@@ -12,7 +12,7 @@
 }
 
 .LSBox {
-    background-color: white;
+    background-color: rgb(231, 231, 231);
     width: 50vw;
     height: 70vh;
     box-sizing: border-box;
@@ -72,14 +72,16 @@
 
 .loginForm>div>input,
 .signUpForm>div>input {
-    padding: 1vmax 4vmax;
+    padding: 1vmax 1vmax;
     padding-right: 1vmax;
     width: 100%;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.267);
     border-radius: 4px;
-    font: 300 0.9vmax cursive;
+    font: 300 0.9vmax "Cambria";
     outline: none;
+    border-radius: 500px;
+    border-color: rgba(171, 5, 46, 0.7);
 }
 
 .loginForm>div>svg,
@@ -103,7 +105,7 @@
 }
 
 #registerImage>img {
-    width: 3vmax;
+    width: 0vmax;
     border-radius: 100%;
 }
 

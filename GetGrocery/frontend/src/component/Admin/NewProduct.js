@@ -90,17 +90,15 @@ const NewProduct = ({ history }) => {
     <Fragment>
       <MetaData title="Create Product" />
       <div className="dashboard">
-        <SideBar />
         <div className="newProductContainer">
           <form
             className="createProductForm"
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Add Product</h1>
 
             <div>
-              <SpellcheckIcon />
               <input
                 type="text"
                 placeholder="Product Name"
@@ -110,7 +108,6 @@ const NewProduct = ({ history }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
               <input
                 type="number"
                 placeholder="Price"
@@ -120,8 +117,6 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -132,7 +127,6 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
                 <option value="">Choose Category</option>
                 {categories.map((cate) => (
@@ -144,7 +138,6 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <StorageIcon />
               <input
                 type="number"
                 placeholder="Stock"

@@ -21,13 +21,10 @@ const UserOptions = ({ user }) => {
   const dispatch = useDispatch();
 
   const options = [
-    { icon: <ListAltIcon />, name: "Orders", func: orders },
-    { icon: <PersonIcon />, name: "Profile", func: account },
+    { icon: <ListAltIcon />, name: "View Orders", func: orders },
     {
       icon: (
-        <ShoppingCartIcon
-          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
-        />
+        <ShoppingCartIcon />
       ),
       name: `Cart(${cartItems.length})`,
       func: cart,
@@ -37,9 +34,9 @@ const UserOptions = ({ user }) => {
 
   if (user.role === "admin") {
     options.unshift({
-      icon: <DashboardIcon />,
-      name: "Dashboard",
+      name: " Admin Dashboard",
       func: dashboard,
+      icon: <DashboardIcon />,
     });
   }
 
