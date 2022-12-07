@@ -3,12 +3,12 @@ import { ReactNavbar } from "overlay-navbar";
 import logo from '../../../images/GoGrocery.jpg';
 import { FaUserAlt, FaCartPlus, FaSearch } from "react-icons/fa";
 const Header = () => {
-    return <ReactNavbar burgerColorHover="purple"
+    return <ReactNavbar burgerColorHover="rgba(171, 5, 46, 0.7)"
         burgerWidth="0.5vmax"
         logo={logo}
-        logoWidth="20vmax"
-        navColor1="grey"
-        logoHoverSize="10px"
+        logoWidth="12vmax"
+        navColor1="rgba(255, 255, 255, 0.7)"
+        logoHoverSize="5px"
         logoHoverColor="#eb4034"
         link1Text="Home"
         link2Text="About"
@@ -19,29 +19,29 @@ const Header = () => {
         link3Url="/products"
         link4Url="/contact"
 
-        link1Size="2.0vmax"
-        link1Color="rgba(35, 35, 35,0.8)"
+        link1Size="1.8vmax"
+        link1Color="rgba(171, 5, 46, 0.7)"
         nav1justifyContent="flex-end"
         nav2justifyContent="flex-end"
         nav3justifyContent="flex-end"
         nav4justifyContent="flex-end"
-        link1ColorHover="#eb4034"
+        link1ColorHover="rgba(171, 5, 46, 0.7)"
         link1Margin="1vmax"
 
         profileIconUrl="/login"
-        profileIconColor="rgba(35, 35, 35,0.8)"
+        profileIconColor="rgba(171, 5, 46, 0.7)"
         searchIcon={true}
         SearchIconElement={FaSearch}
-        searchIconColor="rgba(35, 35, 35,0.8)"
+        searchIconColor="rgba(171, 5, 46, 0.7)"
         cartIcon={true}
         CartIconElement={FaCartPlus}
-        cartIconColor="rgba(35, 35, 35,0.8)"
+        cartIconColor="rgba(171, 5, 46, 0.7)"
         profileIcon={true}
         ProfileIconElement={FaUserAlt}
         profileIconColorHover="purple"
         searchIconColorHover="purple"
         cartIconColorHover="purple"
-        cartIconMargin="2vmax" />
+        cartIconMargin="3vmax" />
 };
 
 

@@ -48,21 +48,6 @@ const MyOrders = () => {
       flex: 0.5,
     },
 
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Link to={`/order/${params.getValue(params.id, "id")}`}>
-            <LaunchIcon />
-          </Link>
-        );
-      },
-    },
   ];
   const rows = [];
 
@@ -92,7 +77,7 @@ const MyOrders = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="myOrdersPage">
+        <div className="orders">
           <DataGrid
             rows={rows}
             columns={columns}

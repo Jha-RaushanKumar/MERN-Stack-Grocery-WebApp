@@ -13,7 +13,7 @@ import Product from "./ProductCard";
 const Home = () => {
     const alert = useAlert();
     const dispatch = useDispatch();
-    const { loading, error, products, productsCount } = useSelector(state => state.products);
+    const { error, products } = useSelector(state => state.products);
 
     useEffect(() => {
         if (error) {
@@ -25,32 +25,26 @@ const Home = () => {
 
     return (
         <Fragment>
-            {loading ? (
-                <Loader />
-            ) : (
-                <Fragment>
-                    <MetaData title="GET GROCERY"></MetaData>
-                    <div className="banner">
-                        <p>Welcome to <span>GET GROCERY</span></p>
-                        <h1>VIEW OUR PRODUCTS BELOW</h1>
+            <MetaData title="GO GROCERY"></MetaData>
+            <div className="firstHomePage">
+                <p>Welcome to <span>GO GROCERY</span></p>
+                <h1>VIEW OUR PRODUCTS BELOW</h1>
 
-                        <a href="#container">
-                            <button>
-                                View <CgMouse />
-                            </button>
-                        </a>
-                    </div>
+                <a href="#container">
+                    <button>
+                        View <CgMouse />
+                    </button>
+                </a>
+            </div>
 
-                    <h2 className="homeHeading">Our Products</h2>
+            <h2 className="productHead">Our Products</h2>
 
-                    <div className="container" id="container">
+            <div className="container" id="container">
 
-                        {products && products.map(product => (
-                            <Product key={product._id} product={product} />
-                        ))}
-                    </div>
-                </Fragment>
-            )}
+                {products && products.map(product => (
+                    <Product key={product._id} product={product} />
+                ))}
+            </div>
         </Fragment>
     );
 };

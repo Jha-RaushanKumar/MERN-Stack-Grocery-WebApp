@@ -70,8 +70,8 @@ const ConfirmOrder = ({ history }) => {
                       {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ₹{item.price} ={" "}
-                      <b>₹{item.price * item.quantity}</b>
+                      {item.quantity} X ${item.price} ={" "}
+                      <b>${item.price * item.quantity}</b>
                     </span>
                   </div>
                 ))}
@@ -81,19 +81,19 @@ const ConfirmOrder = ({ history }) => {
         {/*  */}
         <div>
           <div className="orderSummary">
-            <Typography>Order Summery</Typography>
+            <Typography>Order Summary</Typography>
             <div>
               <div>
                 <p>Subtotal:</p>
-                <span>₹{subtotal}</span>
+                <span>${subtotal}</span>
               </div>
               <div>
                 <p>Shipping Charges:</p>
-                <span>₹{shippingCharges}</span>
+                <span>${shippingCharges}</span>
               </div>
               <div>
                 <p>TAX:</p>
-                <span>₹{tax}</span>
+                <span>${tax}</span>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ const ConfirmOrder = ({ history }) => {
               <p>
                 <b>Total:</b>
               </p>
-              <span>₹{totalPrice}</span>
+              <span>${totalPrice}</span>
             </div>
 
             <button onClick={proceedToPayment}>Proceed To Payment</button>
