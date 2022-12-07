@@ -4,7 +4,6 @@ import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
 import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { Doughnut, Line } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
 import { getAllOrders } from "../../actions/orderAction.js";
@@ -41,19 +40,19 @@ const Dashboard = () => {
       totalAmount += item.totalPrice;
     });
 
-
-  const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
-    datasets: [
-      {
-        label: "TOTAL AMOUNT",
-        backgroundColor: ["tomato"],
-        hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, totalAmount],
-      },
-    ],
-  };
-
+  /*
+    const lineState = {
+      labels: ["Initial Amount", "Amount Earned"],
+      datasets: [
+        {
+          label: "TOTAL AMOUNT",
+          backgroundColor: ["tomato"],
+          hoverBackgroundColor: ["rgb(197, 72, 49)"],
+          data: [0, totalAmount],
+        },
+      ],
+    };
+  
 
   const doughnutState = {
     labels: ["Out of Stock", "InStock"],
@@ -65,7 +64,7 @@ const Dashboard = () => {
 
       },
     ],
-  };
+  };*/
 
   return (
     <div className="dashboard">
@@ -78,7 +77,7 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> ₹{totalAmount}
+              Total Amount <br /> ${totalAmount}
 
             </p>
           </div>
@@ -98,13 +97,13 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="lineChart">
+        {/* <div className="lineChart">
           <Line data={lineState} />
         </div>
 
         <div className="doughnutChart">
           <Doughnut data={doughnutState} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
