@@ -1,7 +1,85 @@
+.navbar {
+    height: 80px;
+    width: 96%;
+    background: #ab9c9b;
+    color: rgba(171, 5, 46, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: rgb(141, 11, 11);
+    font-size: 40px;
+}
+
+
+
+.nav-links {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s all;
+    margin-right: 40px;
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.nav-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar {
+        position: relative;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        text-align: center;
+        width: 75%;
+        top: 80px;
+        left: -120%;
+        transition: 0.5s all;
+    }
+
+    .nav-links.active {
+        background: #ab9c9b;
+        left: 0;
+    }
+
+    .nav-item {
+        padding: 10px 0;
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
+    }
+
+    .nav-icon {
+        display: flex;
+    }
+}
+
 .speedDial {
     position: fixed;
     right: 3vmax;
-    top: 3vmax;
+    top: 15vmax;
 }
 
 .speedDialIcon {

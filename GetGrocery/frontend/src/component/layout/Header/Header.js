@@ -1,48 +1,50 @@
-import React from "react";
-import { ReactNavbar } from "overlay-navbar";
-import logo from '../../../images/GoGrocery.jpg';
-import { FaUserAlt, FaCartPlus, FaSearch } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+
 const Header = () => {
-    return <ReactNavbar burgerColorHover="rgba(171, 5, 46, 0.7)"
-        burgerWidth="0.5vmax"
-        logo={logo}
-        logoWidth="12vmax"
-        navColor1="rgba(255, 255, 255, 0.7)"
-        logoHoverSize="5px"
-        logoHoverColor="#eb4034"
-        link1Text="Home"
-        link2Text="About"
-        link3Text="Products"
-        link4Text="Contact Us"
-        link1Url="/"
-        link2Url="/about"
-        link3Url="/products"
-        link4Url="/contact"
+    const [open, setOpen] = useState(false);
 
-        link1Size="1.8vmax"
-        link1Color="rgba(171, 5, 46, 0.7)"
-        nav1justifyContent="flex-end"
-        nav2justifyContent="flex-end"
-        nav3justifyContent="flex-end"
-        nav4justifyContent="flex-end"
-        link1ColorHover="rgba(171, 5, 46, 0.7)"
-        link1Margin="1vmax"
+    const handleClick = () => {
+        setOpen(!open);
+    };
 
-        profileIconUrl="/login"
-        profileIconColor="rgba(171, 5, 46, 0.7)"
-        searchIcon={true}
-        SearchIconElement={FaSearch}
-        searchIconColor="rgba(171, 5, 46, 0.7)"
-        cartIcon={true}
-        CartIconElement={FaCartPlus}
-        cartIconColor="rgba(171, 5, 46, 0.7)"
-        profileIcon={true}
-        ProfileIconElement={FaUserAlt}
-        profileIconColorHover="purple"
-        searchIconColorHover="purple"
-        cartIconColorHover="purple"
-        cartIconMargin="3vmax" />
+    const closeMenu = () => {
+        setOpen(false);
+    };
+
+    return (
+        <nav className="navbar">
+            <Link to="/" className="nav-logo">
+                Go Grocery
+            </Link>
+            <div onClick={handleClick} className="nav-icon">
+                {open ? <FiX /> : <FiMenu />}
+            </div>
+            <ul className={open ? 'nav-links active' : 'nav-links'}>
+                <li className="nav-item">
+                    <Link to="/" className="nav-link" onClick={closeMenu}>
+                        Home
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/about" className="nav-link" onClick={closeMenu}>
+                        About Us
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/products" className="nav-link" onClick={closeMenu}>
+                        Products
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/contact" className="nav-link" onClick={closeMenu}>
+                        Contact Us
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
 };
-
 
 export default Header;
