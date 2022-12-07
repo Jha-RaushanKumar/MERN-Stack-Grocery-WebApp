@@ -22,7 +22,7 @@
     RESET_PASSWORD_REQUEST,
     RESET_PASSWORD_SUCCESS,
     RESET_PASSWORD_FAIL,
-    /*ALL_USERS_REQUEST,
+    ALL_USERS_REQUEST,
     ALL_USERS_SUCCESS,
     ALL_USERS_FAIL,
     DELETE_USER_REQUEST,
@@ -33,7 +33,7 @@
     UPDATE_USER_FAIL,
     USER_DETAILS_REQUEST,
     USER_DETAILS_SUCCESS,
-    USER_DETAILS_FAIL,*/
+    USER_DETAILS_FAIL,
     CLEAR_ERRORS,
 } from "../constants/userConstants";
 import axios from "axios";
@@ -179,7 +179,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     }
 };
 
-/*
+
 // get All Users
 export const getAllUsers = () => async (dispatch) => {
     try {
@@ -241,7 +241,7 @@ export const deleteUser = (id) => async (dispatch) => {
         });
     }
 };
-*/
+
 // Clearing Errors
 export const clearErrors = () => async (dispatch) => {
     dispatch({ type: CLEAR_ERRORS });

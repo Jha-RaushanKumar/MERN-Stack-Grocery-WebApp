@@ -30,6 +30,13 @@ import Payment from "./component/Cart/Payment.js";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess.js"
+import MyOrders from "./component/Order/MyOrders.js"
+import OrderDetails from './component/Order/OrderDetails';
+import Contact from "./component/layout/Contact/Contact.js";
+import About from "./component/layout/About/About"
+import Dashboard from "./component/Admin/Dashboard.js"
+import ProductList from "./component/Admin/ProductList";
+import NewProduct from './component/Admin/NewProduct';
 function App() {
 
   const { isAuthenticated, user } = useSelector(state => state.user)
@@ -68,14 +75,43 @@ function App() {
         <Route exact path="/password/reset/:token" component={ResetPassword}/>
         <Route exact path="/login" component={LoginSignUp} />
         <Route exact path="/cart" component={Cart} />
-        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <Route exact path="/contact" component={Contact} />
+
+        <Route exact path="/about" component={About} />
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        
+       
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
         <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={MyOrders} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+        <ProtectedRoute
+          isAdmin={true}
+          exact
+          path="/admin/dashboard"
+          component={Dashboard}
+        />
+           <ProtectedRoute
+          exact
+          path="/admin/products"
+          isAdmin={true}
+          component={ProductList}
+        />
+           <ProtectedRoute
+          exact
+          path="/admin/product/new"
+          isAdmin={true}
+          component={NewProduct}
+        />
         {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
        <Route exact path="/process/payment" component={Payment} />
         </Elements>
         )}
+
+
+
+
         
        
       </Switch>
