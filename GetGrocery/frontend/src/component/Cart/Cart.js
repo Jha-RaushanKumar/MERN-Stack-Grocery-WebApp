@@ -38,10 +38,9 @@ const Cart = ({ history }) => {
   return (
     <Fragment>
       {cartItems.length === 0 ? (
-        <div className="emptyCart">
-          <RemoveShoppingCartIcon />
-
-          <Typography>No Product in Your Cart</Typography>
+        <div className="empty">
+          <Typography>No Items in Your Cart</Typography>
+          <br></br><br></br><br></br>
           <Link to="/products">View Products</Link>
         </div>
       ) : (
@@ -50,7 +49,7 @@ const Cart = ({ history }) => {
             <div className="cartHeader">
               <p>Product</p>
               <p>Quantity</p>
-              <p>Subtotal</p>
+              <p>Total</p>
             </div>
 
             {cartItems &&
@@ -78,17 +77,16 @@ const Cart = ({ history }) => {
                       +
                     </button>
                   </div>
-                  <p className="cartSubtotal">{`₹${
-                    item.price * item.quantity
-                  }`}</p>
+                  <p className="cartSubtotal">{`$${item.price * item.quantity
+                    }`}</p>
                 </div>
               ))}
 
             <div className="cartGrossProfit">
               <div></div>
               <div className="cartGrossProfitBox">
-                <p>Gross Total</p>
-                <p>{`₹${cartItems.reduce(
+                <p> Total</p>
+                <p>{`$${cartItems.reduce(
                   (acc, item) => acc + item.quantity * item.price,
                   0
                 )}`}</p>

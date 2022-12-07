@@ -33,8 +33,8 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// get Single Order
-exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
+// get One Order
+exports.getOneOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id).populate(
     "user",
     "name email"

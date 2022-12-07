@@ -1,3 +1,4 @@
+
 import React, { Fragment, useEffect } from "react";
 import "./orderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +9,7 @@ import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert";
 
-const OrderDetails = ({ match }) => { 
+const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
 
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const OrderDetails = ({ match }) => {
 
     dispatch(getOrderDetails(match.params.id));
   }, [dispatch, alert, error, match.params.id]);
-   return  <div></div>
+  return <div></div>
   //  (
   //   <Fragment>
   //     {loading ? (
@@ -106,8 +107,8 @@ const OrderDetails = ({ match }) => {
   //                       {item.name}
   //                     </Link>{" "}
   //                     <span>
-  //                       {item.quantity} X ₹{item.price} ={" "}
-  //                       <b>₹{item.price * item.quantity}</b>
+  //                       {item.quantity} X ${item.price} ={" "}
+  //                       <b>${item.price * item.quantity}</b>
   //                     </span>
   //                   </div>
   //                 ))}

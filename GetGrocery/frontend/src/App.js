@@ -18,7 +18,7 @@ import UserOptions from "./component/layout/Header/UserOptions.js"
 import { useSelector } from 'react-redux';
 import Profile from "./component/User/Profile.js"
 import ProtectedRoute from './component/Route/ProtectecRoute';
-import  UpdateProfile  from './component/User/UpdateProfile.js';
+import UpdateProfile from './component/User/UpdateProfile.js';
 import UpdatePassword from "./component/User/UpdatePassword.js";
 import ForgotPassword from "./component/User/ForgotPassword.js"
 import ResetPassword from "./component/User/ResetPassword.js"
@@ -69,18 +69,16 @@ function App() {
         <Route path="/products/:keyword" component={Products} />
         <Route exact path="/search" component={Search} />
         <ProtectedRoute exact path="/account" component={Profile} />
-        <ProtectedRoute exact path="/me/update" component={UpdateProfile} /> 
-        <ProtectedRoute exact path="/password/update" component={UpdatePassword}/>
-        <Route exact path="/password/forgot" component={ForgotPassword}/>
-        <Route exact path="/password/reset/:token" component={ResetPassword}/>
+        <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
+        <ProtectedRoute exact path="/password/update" component={UpdatePassword} />
+        <Route exact path="/password/forgot" component={ForgotPassword} />
+        <Route exact path="/password/reset/:token" component={ResetPassword} />
         <Route exact path="/login" component={LoginSignUp} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/contact" component={Contact} />
 
         <Route exact path="/about" component={About} />
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-        
-       
         <ProtectedRoute exact path="/shipping" component={Shipping} />
         <ProtectedRoute exact path="/success" component={OrderSuccess} />
         <ProtectedRoute exact path="/orders" component={MyOrders} />
@@ -91,29 +89,39 @@ function App() {
           path="/admin/dashboard"
           component={Dashboard}
         />
-           <ProtectedRoute
+        <ProtectedRoute
           exact
           path="/admin/products"
           isAdmin={true}
           component={ProductList}
         />
-           <ProtectedRoute
+
+
+        <ProtectedRoute
           exact
           path="/admin/product/new"
           isAdmin={true}
           component={NewProduct}
         />
+       
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={MyOrders} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+        
         {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-       <Route exact path="/process/payment" component={Payment} />
-        </Elements>
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <Route exact path="/process/payment" component={Payment} />
+          </Elements>
         )}
 
 
 
 
-        
-       
+
+
+
+
       </Switch>
       <Footer />
     </Router>
