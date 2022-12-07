@@ -15,9 +15,9 @@ const ConfirmOrder = ({ history }) => {
     0
   );
 
-  const shippingCharges = subtotal > 1000 ? 0 : 200;
+  const shippingCharges = 0;
 
-  const tax = subtotal * 0.18;
+  const tax = 0;
 
   const totalPrice = subtotal + tax + shippingCharges;
 
@@ -43,7 +43,7 @@ const ConfirmOrder = ({ history }) => {
       <div className="confirmOrderPage">
         <div>
           <div className="confirmshippingArea">
-            <Typography>Shipping Info</Typography>
+            <Typography>Shipping Details:</Typography>
             <div className="confirmshippingAreaBox">
               <div>
                 <p>Name:</p>
@@ -59,6 +59,10 @@ const ConfirmOrder = ({ history }) => {
               </div>
             </div>
           </div>
+
+        </div>
+        {/*  */}
+        <div>
           <div className="confirmCartItems">
             <Typography>Your Cart Items:</Typography>
             <div className="confirmCartItemsContainer">
@@ -78,35 +82,22 @@ const ConfirmOrder = ({ history }) => {
             </div>
           </div>
         </div>
-        {/*  */}
+
+      </div>
+      <div className="orderSummary">
+        <Typography>Order Summary</Typography>
         <div>
-          <div className="orderSummary">
-            <Typography>Order Summary</Typography>
-            <div>
-              <div>
-                <p>Subtotal:</p>
-                <span>${subtotal}</span>
-              </div>
-              <div>
-                <p>Shipping Charges:</p>
-                <span>${shippingCharges}</span>
-              </div>
-              <div>
-                <p>TAX:</p>
-                <span>${tax}</span>
-              </div>
-            </div>
 
-            <div className="orderSummaryTotal">
-              <p>
-                <b>Total:</b>
-              </p>
-              <span>${totalPrice}</span>
-            </div>
-
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
-          </div>
         </div>
+
+        <div className="orderSummaryTotal">
+          <p>
+            <b>Total:</b>
+          </p>
+          <span>${totalPrice}</span>
+        </div>
+
+        <button onClick={proceedToPayment}>Proceed To Payment</button>
       </div>
     </Fragment>
   );

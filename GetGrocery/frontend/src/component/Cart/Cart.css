@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
+  width: 70%;
 }
 
 .empty svg {
@@ -27,18 +28,21 @@
   cursor: pointer;
   font: 400 1vmax "Cambria";
   text-decoration: none;
+  border-radius: 50px;
 }
 
 .cartPage {
   padding: 5vmax;
+  padding-left: 25vmax;
+  padding-right: 25vmax;
 }
 
 .cartHeader {
-  background-color: rgba(171, 5, 46, 0.7);
+  background-color: rgba(185, 169, 173, 0.7);
   width: 90%;
   box-sizing: border-box;
   margin: auto;
-  color: white;
+  color: rgb(238, 12, 12);
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
   font: 300 1vmax "Cambria";
@@ -67,7 +71,7 @@
 
 .cartInput>button {
   border: none;
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: rgba(167, 89, 89, 0.616);
   padding: 0.5vmax;
   cursor: pointer;
   color: white;
@@ -105,7 +109,6 @@
 }
 
 .cartGrossProfitBox {
-  border-top: 3px solid rgba(171, 5, 46, 0.7);
   margin: 1vmax 4vmax;
   box-sizing: border-box;
   padding: 2vmax 0;
@@ -123,10 +126,10 @@
   background-color: rgba(171, 5, 46, 0.7);
   color: white;
   border: none;
-  padding: 0.8vmax 4vmax;
-  width: 50%;
+  padding: 0.8vmax 2vmax;
+  width: 100%;
   font: 300 0.8vmax "Cambria";
-  margin: 1vmax 4vmax;
+  margin: 1vmax 1vmax;
   cursor: pointer;
   border-radius: 30px;
 }

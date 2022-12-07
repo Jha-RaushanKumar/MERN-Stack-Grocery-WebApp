@@ -78,6 +78,9 @@ const MyOrders = () => {
         <Loader />
       ) : (
         <div className="orders">
+          <div className="orders1">
+            <Typography>My Orders:</Typography>
+          </div>
           <DataGrid
             rows={rows}
             columns={columns}

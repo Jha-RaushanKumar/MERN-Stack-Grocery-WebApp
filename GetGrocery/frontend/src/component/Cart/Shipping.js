@@ -54,7 +54,7 @@ const Shipping = ({ history }) => {
             onSubmit={shippingSubmit}
           >
             <div>
-              <HomeIcon />
+
               <input
                 type="text"
                 placeholder="Address"
@@ -65,7 +65,7 @@ const Shipping = ({ history }) => {
             </div>
 
             <div>
-              <LocationCityIcon />
+
               <input
                 type="text"
                 placeholder="City"
@@ -76,7 +76,7 @@ const Shipping = ({ history }) => {
             </div>
 
             <div>
-              <PinDropIcon />
+
               <input
                 type="number"
                 placeholder="Pin Code"
@@ -87,7 +87,7 @@ const Shipping = ({ history }) => {
             </div>
 
             <div>
-              <PhoneIcon />
+
               <input
                 type="number"
                 placeholder="Phone Number"
@@ -99,7 +99,7 @@ const Shipping = ({ history }) => {
             </div>
 
             <div>
-              <PublicIcon />
+
 
               <select
                 required
@@ -118,7 +118,7 @@ const Shipping = ({ history }) => {
 
             {country && (
               <div>
-                <TransferWithinAStationIcon />
+
 
                 <select
                   required
@@ -146,7 +146,7 @@ const Shipping = ({ history }) => {
         </div>
       </div>
 
-      
+
     </Fragment>
   );
 };

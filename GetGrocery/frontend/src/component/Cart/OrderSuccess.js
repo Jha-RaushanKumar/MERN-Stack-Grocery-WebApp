@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const OrderSuccess = () => {
   return <Fragment>
     <div className="orderSuccess">
-      <CheckCircleIcon />
 
-      <Typography>Your Order has been Placed successfully </Typography>
+
+      <Typography>Your Order has been placed successfully! </Typography>
       <br></br><br></br><br></br><br></br>
       <Link to="/orders">View Orders</Link>
     </div>

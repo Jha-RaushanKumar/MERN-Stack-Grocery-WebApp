@@ -44,12 +44,12 @@
 
 .shippingForm>div>input,
 .shippingForm>div>select {
-  padding: 1vmax 4vmax;
+  padding: 1vmax 2vmax;
   padding-right: 1vmax;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solidrgba(171, 5, 46, 0.7);
-  border-radius: 4px;
+  border-radius: 40px;
+  border-color: rgba(171, 5, 46, 0.7);
   font: 300 0.9vmax cursive;
   outline: none;
 }

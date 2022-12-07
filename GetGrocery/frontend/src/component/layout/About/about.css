@@ -13,7 +13,7 @@
   top: 50%;
   background-color: rgb(255, 255, 255);
   width: 80vw;
-  height: 90vh;
+  height: 100vh;
   transform: translateX(-50%) translateY(-50%);
   box-shadow: -10px 10px 10px rgba(107, 6, 6, 0.192);
   display: flex;
@@ -27,13 +27,13 @@
   color: rgba(171, 5, 46, 0.7);
   margin: 2vmax;
   text-align: center;
-  width: 50vmax;
+  width: 30vmax;
   border-bottom: 1px solid rgba(171, 5, 46, 0.7);
 }
 
 .photo {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
 }
 
 .about1 h2 {
