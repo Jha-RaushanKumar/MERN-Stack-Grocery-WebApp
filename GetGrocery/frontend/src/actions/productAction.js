@@ -135,27 +135,21 @@ export const createProduct = (productData) => async (dispatch) => {
         };
 
         const { data } = await axios.post(
-            `/api/v1/admin/product/new`,
+            `/api/v1/admin/products/new`,
             productData,
             config
         );
 
-const { data } = await axios.post(
-`/api/v1/admin/products/new`,
-productData,
-config
-);
-
-dispatch({
-type: NEW_PRODUCT_SUCCESS,
-payload: data,
-});
-} catch (error) {
-dispatch({
-type: NEW_PRODUCT_FAIL,
-payload: error.response.data.message,
-});
-}
+        dispatch({
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data,
+        });
+    } catch (error) {
+        dispatch({
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message,
+        });
+    }
 };
 
 // Update Product
@@ -168,7 +162,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
         };
 
         const { data } = await axios.put(
-            `/api/v1/admin/products/${id}`,
+            `/api/v1/admin/product/${id}`,
             productData,
             config
         );
@@ -264,5 +258,3 @@ export const deleteReviews = (reviewId, productId) => async (dispatch) => {
         });
     }
 };
-
-
