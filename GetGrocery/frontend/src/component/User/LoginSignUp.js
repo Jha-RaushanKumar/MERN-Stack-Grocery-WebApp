@@ -117,7 +117,6 @@ const LoginSignUp = ({ history, location }) => {
                     </div>
                     <form className="loginForm" ref={loginTab} onSubmit={loginSubmit}>
                         <div className="loginEmail">
-                            <MailOutlineIcon />
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -127,7 +126,6 @@ const LoginSignUp = ({ history, location }) => {
                             />
                         </div>
                         <div className="loginPassword">
-                            <LockOpenIcon />
                             <input
                                 type="password"
                                 placeholder="Password"
@@ -145,7 +143,6 @@ const LoginSignUp = ({ history, location }) => {
                         onSubmit={registerSubmit}
                     >
                         <div className="signUpName">
-                            <FaceIcon />
                             <input
                                 type="text"
                                 placeholder="Name"
@@ -156,7 +153,6 @@ const LoginSignUp = ({ history, location }) => {
                             />
                         </div>
                         <div className="signUpEmail">
-                            <MailOutlineIcon />
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -167,7 +163,6 @@ const LoginSignUp = ({ history, location }) => {
                             />
                         </div>
                         <div className="signUpPassword">
-                            <LockOpenIcon />
                             <input
                                 type="password"
                                 placeholder="Password"

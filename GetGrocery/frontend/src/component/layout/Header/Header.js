@@ -42,6 +42,11 @@ const Header = () => {
                         Contact Us
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link" onClick={closeMenu}>
+                        User
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

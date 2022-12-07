@@ -21,10 +21,9 @@
 
 .nav-links {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 20px;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
     list-style: none;
-    margin-right: 20px;
 }
 
 .nav-link {
@@ -79,11 +78,11 @@
 .speedDial {
     position: fixed;
     right: 3vmax;
-    top: 15vmax;
+    top: 5vmax;
 }
 
 .speedDialIcon {
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 70px;
     border-radius: 100%;
 }

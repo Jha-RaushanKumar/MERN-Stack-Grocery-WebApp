@@ -37,6 +37,10 @@ import About from "./component/layout/About/About"
 import Dashboard from "./component/Admin/Dashboard.js"
 import ProductList from "./component/Admin/ProductList";
 import NewProduct from './component/Admin/NewProduct';
+import OrderList from './component/Admin/OrderList';
+import ProcessOrder from './component/Admin/ProcessOrders.js';
+import UsersList from './component/Admin/UsersList.js'
+import UpdateUser from './component/Admin/UpdateUser.js';
 function App() {
 
   const { isAuthenticated, user } = useSelector(state => state.user)
@@ -83,6 +87,10 @@ function App() {
         <ProtectedRoute exact path="/success" component={OrderSuccess} />
         <ProtectedRoute exact path="/orders" component={MyOrders} />
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={MyOrders} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
         <ProtectedRoute
           isAdmin={true}
           exact
@@ -103,12 +111,33 @@ function App() {
           isAdmin={true}
           component={NewProduct}
         />
-       
-        <ProtectedRoute exact path="/shipping" component={Shipping} />
-        <ProtectedRoute exact path="/success" component={OrderSuccess} />
-        <ProtectedRoute exact path="/orders" component={MyOrders} />
-        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
-        
+
+
+        <ProtectedRoute
+          exact
+          path="/admin/orders"
+          isAdmin={true}
+          component={OrderList}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/order/:id"
+          isAdmin={true}
+          component={ProcessOrder}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/users"
+          isAdmin={true}
+          component={UsersList}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/user/:id"
+          isAdmin={true}
+          component={UpdateUser}
+        />
+
         {stripeApiKey && (
           <Elements stripe={loadStripe(stripeApiKey)}>
             <Route exact path="/process/payment" component={Payment} />
