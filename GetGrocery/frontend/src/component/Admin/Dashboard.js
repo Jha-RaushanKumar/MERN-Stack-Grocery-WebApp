@@ -30,27 +30,27 @@ const Dashboard = () => {
   
 
   
-  const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
-    datasets: [
-      {
-        label: "TOTAL AMOUNT",
-        backgroundColor: ["tomato"],
-        hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, 4000],
-      },
-    ],
-  };
-  const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
-    datasets: [
-      {
-        backgroundColor: ["#00A6B4", "#6800B4"],
-        hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [0, 10 - 0],
-      },
-    ],
-  };
+  // const lineState = {
+  //   labels: ["Initial Amount", "Amount Earned"],
+  //   datasets: [
+  //     {
+  //       label: "TOTAL AMOUNT",
+  //       backgroundColor: ["tomato"],
+  //       hoverBackgroundColor: ["rgb(197, 72, 49)"],
+  //       data: [0, 4000],
+  //     },
+  //   ],
+  // };
+  // const doughnutState = {
+  //   labels: ["Out of Stock", "InStock"],
+  //   datasets: [
+  //     {
+  //       backgroundColor: ["#00A6B4", "#6800B4"],
+  //       hoverBackgroundColor: ["#4B5000", "#35014F"],
+  //       data: [0, 10 - 0],
+  //     },
+  //   ],
+  // };
 
   
     return (

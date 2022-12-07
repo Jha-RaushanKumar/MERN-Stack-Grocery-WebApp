@@ -135,7 +135,7 @@ headers: { "Content-Type": "application/json" },
 };
 
 const { data } = await axios.post(
-`/api/v1/admin/product/new`,
+`/api/v1/admin/products/new`,
 productData,
 config
 );

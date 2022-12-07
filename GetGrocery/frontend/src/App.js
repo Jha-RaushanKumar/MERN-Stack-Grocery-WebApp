@@ -79,12 +79,6 @@ function App() {
 
         <Route exact path="/about" component={About} />
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-        
-       
-        <ProtectedRoute exact path="/shipping" component={Shipping} />
-        <ProtectedRoute exact path="/success" component={OrderSuccess} />
-        <ProtectedRoute exact path="/orders" component={MyOrders} />
-        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
         <ProtectedRoute
           isAdmin={true}
           exact
@@ -103,6 +97,12 @@ function App() {
           isAdmin={true}
           component={NewProduct}
         />
+       
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={MyOrders} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+        
         {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
        <Route exact path="/process/payment" component={Payment} />
