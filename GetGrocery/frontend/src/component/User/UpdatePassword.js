@@ -58,14 +58,13 @@ const UpdatePassword = ({ history }) => {
           <MetaData title="Change Password" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
-              <h2 className="updatePasswordHeading">Update Profile</h2>
+              <h2 className="updatePasswordHeading">Update Password</h2>
 
               <form
                 className="updatePasswordForm"
                 onSubmit={updatePasswordSubmit}
               >
                 <div className="loginPassword">
-                  <VpnKeyIcon />
                   <input
                     type="password"
                     placeholder="Old Password"
@@ -76,7 +75,6 @@ const UpdatePassword = ({ history }) => {
                 </div>
 
                 <div className="loginPassword">
-                  <LockOpenIcon />
                   <input
                     type="password"
                     placeholder="New Password"
@@ -86,7 +84,6 @@ const UpdatePassword = ({ history }) => {
                   />
                 </div>
                 <div className="loginPassword">
-                  <LockIcon />
                   <input
                     type="password"
                     placeholder="Confirm Password"

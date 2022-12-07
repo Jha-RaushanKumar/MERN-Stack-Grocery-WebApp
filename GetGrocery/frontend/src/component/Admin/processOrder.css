@@ -1,0 +1,66 @@
+.updateOrderForm {
+  margin: 5vmax 0;
+  padding: 3vmax;
+  background-color: white;
+  height: 100%;
+
+}
+
+.updateOrderForm>div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+}
+
+.updateOrderForm>div>select {
+  padding: 1vmax 1vmax;
+  margin: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(171, 5, 46, 0.7);
+  border-radius: 4px;
+  font: 300 0.9vmax "Cambria";
+  outline: none;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 200px;
+}
+
+.updateOrderForm>div>svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.6vmax;
+}
+
+.newProductContainer1 {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.newProductContainer1 h1 {
+  color: rgba(171, 5, 46, 0.7);
+  font: 300 2rem "Cambria";
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .updateOrderForm {
+    padding: 5vmax;
+  }
+
+  .updateOrderForm>div>select {
+    padding: 2.5vmax 5vmax;
+    font: 300 1.7vmax cursive;
+  }
+
+  .updateOrderForm>div>svg {
+    font-size: 2.8vmax;
+  }
+}
