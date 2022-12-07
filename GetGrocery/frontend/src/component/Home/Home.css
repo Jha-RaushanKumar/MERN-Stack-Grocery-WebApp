@@ -1,6 +1,5 @@
-.banner {
+.firstHomePage {
     background-image: url('../../images/back.jpg');
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,15 +12,14 @@
     color: white;
 }
 
-.banner>h1 {
-    margin: 5vmax;
+.firstHomePage h1 {
+    margin: 2vmax;
     color: rgb(194, 35, 62);
     font: 600 2.5vmax "Cambria";
 
 }
 
-.banner>p>span {
-
+.firstHomePage p span {
     font: 600 2.5vmax "Cambria";
     color: rgb(80, 4, 90);
     font-size: 60px;
@@ -29,15 +27,16 @@
 
 }
 
-.banner>p {
+.firstHomePage p {
+    margin: 3vmax;
     font: 300 1.4vmax "Lucida Sans";
     color: rgb(39, 39, 34);
     font-size: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.banner>a>button {
-    margin-bottom: 5vmax;
+.firstHomePage a button {
+    margin-bottom: 10vmax;
     cursor: pointer;
     background-color: rgb(255, 255, 255);
     border: 1px solid white;
@@ -45,15 +44,15 @@
     padding: 1vmax;
     transition: all 0.5s;
     width: 9vmax;
-    font: 500 1vmax "Roboto";
+    font: 500 1vmax "Cambria";
 }
 
-.banner>a>button:hover {
+.firstHomePage a button:hover {
     background-color: rgba(255, 255, 255, 0);
     color: rgb(201, 44, 44);
 }
 
-.banner::after {
+.firstHomePage::after {
     content: "";
     width: 100vw;
     height: 100vmin;
@@ -61,93 +60,98 @@
     position: absolute;
     top: 0%;
     left: 0;
-    clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+    clip-path: polygon(100% 100%, 0 100%, 100% 100%);
     max-width: 100%;
 }
 
-.homeHeading {
+.productHead {
     text-align: center;
-    font-family: Roboto;
-    font-size: 1.4vmax;
-    border-bottom: 1px solid rgba(21, 21, 21, 0.5);
-    width: 20vmax;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2vmax;
+    border-bottom: 1px solid rgba(171, 5, 46, 0.7);
+    width: 50vmax;
     padding: 1vmax;
     margin: 5vmax auto;
-    color: rgb(0, 0, 0, 0.7);
+    color: rgba(171, 5, 46, 0.7);
 }
 
 .container {
     display: flex;
-    margin: 2vmax auto;
+    margin: 4vmax auto;
     width: 80vw;
     flex-wrap: wrap;
     justify-content: center;
     max-width: 100%;
+    background-color: rgb(214, 214, 213);
 }
 
-.productCard {
+.prodCard {
     width: 14vmax;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: rgb(48, 48, 48);
     margin: 2vmax;
-    transition: all 0.5s;
+    transition: all 0.7s;
     padding-bottom: 0.5vmax;
+    border: 2px solid rgba(171, 5, 46, 0.7);
+    border-radius: 0;
+
 }
 
-.productCard>img {
+.prodCard img {
     width: 14vmax;
 }
 
-.productCard>div {
+.prodCard div {
     margin: 0.5vmax;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border: 2px solid rgba(25, 4, 102, 0.7);
+    border-radius: 0;
+    text-align: center;
+    background-color: rgb(231, 163, 74);
 }
 
-.productCardSpan {
-    margin: 0.5vmax;
-    font: 300 0.7vmax "Roboto";
-}
-
-.productCard>p {
-    font-family: "Roboto";
-    font-size: 1.2vmax;
+.prodCard .prodCard1 p {
+    color: rgba(50, 15, 3, 0.7);
     margin: 1vmax 0.5vmax;
-    margin-bottom: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2vmax;
+    text-align: center;
 }
 
-.productCard>span {
-    margin: 0.5vmax;
-    color: tomato;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-size: 1vmax;
+.prodCard .prodCard1 span {
+    color: rgba(188, 56, 8, 0.7);
+    margin: 1vmax 0.5vmax;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2vmax;
+    text-align: center;
 }
 
-.productCard:hover {
+.prodCard:hover {
     box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
 
     transform: translateY(-1vmax);
 }
 
 @media screen and (max-width: 600px) {
-    .productCard>p {
+    .prodCard1 p {
         font-size: 1.7vmax;
     }
 
-    .productCard>div {
+    .prodCard1 div {
         margin: 0vmax;
         display: block;
     }
 
-    .productCard>span {
+    .prodCard1 span {
         font-size: 1.5vmax;
     }
 
-    .productCard>div>span {
+    .prodCard1 div span {
         margin: 0 0.5vmax;
-        font: 300 1vmax "Roboto";
+        font: 300 1vmax "Cambria";
     }
 }

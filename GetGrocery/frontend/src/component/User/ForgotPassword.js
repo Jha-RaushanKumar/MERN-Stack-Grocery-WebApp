@@ -39,41 +39,35 @@ const ForgotPassword = () => {
 
   return (
     <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <MetaData title="Forgot Password" />
-          <div className="forgotPasswordContainer">
-            <div className="forgotPasswordBox">
-              <h2 className="forgotPasswordHeading">Forgot Password</h2>
+      <MetaData title="Forgot Password" />
+      <div className="forgotPasswordContainer">
+        <div className="forgotPasswordBox">
+          <h2 className="forgotPasswordHeading">Forgot Password</h2>
 
-              <form
-                className="forgotPasswordForm"
-                onSubmit={forgotPasswordSubmit}
-              >
-                <div className="forgotPasswordEmail">
-                  <MailOutlineIcon />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <input
-                  type="submit"
-                  value="Send"
-                  className="forgotPasswordBtn"
-                />
-              </form>
+          <form
+            className="forgotPasswordForm"
+            onSubmit={forgotPasswordSubmit}
+          >
+            <div className="forgotPasswordEmail">
+              <MailOutlineIcon />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-          </div>
-        </Fragment>
-      )}
+
+            <input
+              type="submit"
+              value="Send"
+              className="forgotPasswordBtn"
+            />
+          </form>
+        </div>
+      </div>
     </Fragment>
   );
 };
