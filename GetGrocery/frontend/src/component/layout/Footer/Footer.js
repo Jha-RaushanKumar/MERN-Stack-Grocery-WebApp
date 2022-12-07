@@ -6,12 +6,6 @@ import appStore from "../../../images/Appstore.png";
 const Footer = () => {
     return (
         <footer id="foot">
-            <div className="foot1">
-                <h4>DOWNLOAD OUR APP</h4>
-                <p>Download App for Android and IOS mobile phone</p>
-                <img src={playStore} alt="playstore" />
-                <img src={appStore} alt="Appstore" />
-            </div>
 
             <div className="foot2">
                 <h1>GO GROCERY</h1>

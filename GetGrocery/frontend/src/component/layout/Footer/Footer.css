@@ -20,20 +20,8 @@
     font-size: 1vmax;
 }
 
-.foot1 p {
-    text-align: center;
-    font-size: 1.4vmax;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.foot1 img {
-    width: 5vmax;
-    margin: 1vmax;
-    cursor: pointer;
-}
-
 .foot2 {
-    width: 60%;
+    width: 100%;
     text-align: center;
 }
 

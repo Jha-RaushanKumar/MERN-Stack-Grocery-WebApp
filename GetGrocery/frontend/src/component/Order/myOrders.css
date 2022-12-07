@@ -1,15 +1,25 @@
 .orders {
   width: 100vw;
+  height: 100vh;
   max-width: 100%;
-  padding: 0 7vmax;
+  padding: 12vmax 7vmax;
   box-sizing: border-box;
   background-color: rgb(235, 235, 235);
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+}
+
+.orders1 {
+  font: 800 12vmax "Cambria";
+  color: rgba(171, 5, 46, 0.7);
+  text-align: center;
+  width: 85vmax;
+  align-items: center;
+  padding-bottom: 50px;
+
+
 }
 
 #myOrdersHeading {
@@ -23,7 +33,7 @@
 }
 
 .myOrdersTable {
-  background-color: rgb(170, 148, 148);
+  background-color: rgb(255, 255, 255);
 }
 
 .myOrdersTable div {
@@ -38,11 +48,11 @@
 }
 
 .myOrdersTable a:hover {
-  color: rgba(171, 5, 46, 0.7);
+  color: rgba(223, 207, 211, 0.7);
 }
 
 .MuiDataGrid-columnHeader {
-  background-color: rgba(171, 5, 46, 0.7);
+  background-color: rgb(211, 186, 186);
   padding: 1vmax !important;
 }
 

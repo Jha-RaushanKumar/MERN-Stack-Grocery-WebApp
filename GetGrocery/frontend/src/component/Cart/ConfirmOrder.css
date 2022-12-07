@@ -1,8 +1,8 @@
 .confirmOrderPage {
-  height: 100vh;
+  height: 60vh;
   background-color: white;
   display: grid;
-  grid-template-columns: 6fr 3fr;
+  grid-template-columns: 6fr 6fr;
   color: rgba(171, 5, 46, 0.7);
 }
 
@@ -81,12 +81,13 @@
 .orderSummary {
   padding: 7vmax;
   color: rgba(171, 5, 46, 0.7);
+  text-align: center;
 }
 
 .orderSummary>p {
   text-align: center;
   font: 400 1.8vmax "Cambria";
-  border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+  border-bottom: 1px solid white;
   padding: 1vmax;
   width: 100%;
   margin: auto;
@@ -101,7 +102,7 @@
 }
 
 .orderSummary>div>div>span {
-  color: rgba(0, 0, 0, 0.692);
+  color: white;
 }
 
 .orderSummaryTotal {
@@ -136,7 +137,7 @@
 
   .confirmOrderPage>div:last-child {
     border-left: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.247);
+    border-top: 1px solid white;
   }
 
   .confirmshippingArea>p {

@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./store";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
+import AlertTemplate from "react-alert-template-mui";
 
 const options = {
-  timeout: 5000,
-  position: positions.BOTTOM_CENTER,
-  transition: transitions.SCALE,
+  timeout: 1000,
+  position: positions.TOP_CENTER,
+  transition: transitions.FADE,
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

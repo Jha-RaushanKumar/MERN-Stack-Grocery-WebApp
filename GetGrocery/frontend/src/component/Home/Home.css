@@ -95,7 +95,7 @@
     transition: all 0.7s;
     padding-bottom: 0.5vmax;
     border: 2px solid rgba(171, 5, 46, 0.7);
-    border-radius: 0;
+    border-radius: 5px;
 
 }
 
@@ -108,10 +108,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 2px solid rgba(25, 4, 102, 0.7);
-    border-radius: 0;
+    border: 2px solid rgba(33, 15, 101, 0.7);
+    border-radius: 10px;
     text-align: center;
-    background-color: rgb(216, 159, 125);
+    background-color: rgb(162, 154, 149);
 }
 
 .prodCard .prodCard1 p {
