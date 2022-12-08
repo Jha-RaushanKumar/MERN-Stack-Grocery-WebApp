@@ -120,5 +120,4 @@ const OrderDetails = ({ match }) => {
   //   </Fragment>
   // );
 };
-
 export default OrderDetails;
