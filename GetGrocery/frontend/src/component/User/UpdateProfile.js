@@ -124,4 +124,5 @@ const UpdateProfile = ({ history }) => {
     );
 };
 
+
 export default UpdateProfile;
