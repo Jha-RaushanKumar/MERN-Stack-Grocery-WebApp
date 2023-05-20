@@ -42,7 +42,7 @@ To set up and run the MERN Stack E-Commerce Web App, follow these steps:
    
 6. Start the front-end development server by running the following command:
 
-  react-scripts start"
+   react-scripts start
   
 7. Access the web application through a web browser at http://localhost:3000.
 
