@@ -1,4 +1,4 @@
-# MERN Stack Grocery Web App
+# MERN Stack Grocery WebApp
 
 This project is a responsive web application built using the MERN stack, with back-end APIs developed in Node.js, Express.js, and MongoDB, and the front-end constructed using the React.js framework. The application integrates various technologies such as Stripe for payments processing, JWT for authentication, and MongoDB Atlas for data storage.
 
